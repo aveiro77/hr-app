@@ -56,7 +56,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('payroll', function (Blueprint $table) {
+        Schema::create('payrolls', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained('employees');
             $table->decimal('salary', 10, 2);
@@ -100,7 +100,7 @@ return new class extends Migration
         Schema::dropIfExists('roles');
         Schema::dropIfExists('employees');
         Schema::dropIfExists('tasks');
-        Schema::dropIfExists('payroll');
+        Schema::dropIfExists('payrolls');
         Schema::dropIfExists('presences');
         Schema::dropIfExists('leave_requests');
     }
