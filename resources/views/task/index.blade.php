@@ -1,69 +1,74 @@
 @extends('layouts.dashboard')
 @section('content')
-<header class="mb-3">
-    <a href="#" class="burger-btn d-block d-xl-none">
-        <i class="bi bi-justify fs-3"></i>
-    </a>
-</header>
+
+    <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+            <i class="bi bi-justify fs-3"></i>
+        </a>
+    </header>
             
-<div class="page-heading">
-    <h3>Tasks</h3>
-</div> 
-<div class="page-content"> 
-    <section class="row">
-        <div class="col-12 col-lg-9">
+    <div class="page-heading">
+        <div class="page-title">
             <div class="row">
-                <div class="col-12 col-xl-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Latest Comments</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-lg">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Comment</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="{{ asset('mazer/dist/assets/compiled/jpg/5.jpg') }}">
-                                                    </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Congratulations on your graduation!</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="{{ asset('mazer/dist/assets/compiled/jpg/2.jpg') }}">
-                                                    </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Wow amazing design! Can you make another tutorial for
-                                                    this design?</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Tasks</h3>
+                    <p class="text-subtitle text-muted">Handle employee tasks</p>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Tasks</li>
+                            <li class="breadcrumb-item active" aria-current="page">Index</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Tasks List
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <a href="" class="btn btn-primary mb-3 ms-auto">New Task</a>
+                    </div>
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Assigned to</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($tasks as $task)
+                                <tr>
+                                    <td>{{ $task->title }}</td>
+                                    <td>{{ $task->employee->fullname }}</td>
+                                    <td>{{ $task->due_date }}</td>
+                                    <td>
+                                        {{ $task->status }}
+                                    </td>
+                                    <td>
+                                        <a href="" class="btn btn-info btn-sm m-1">View</a>
+                                        <a href="" class="btn btn-success btn-sm m-1">Mark as Done</a>
+                                        <a href="" class="btn btn-warning btn-sm m-1">Mark as Pending</a>
+                                        <a href="" class="btn btn-info btn-primary btn-sm m-1">Edit</a>
+                                        <a href="" class="btn btn-info btn-danger btn-sm m-1">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
+        </section>
+</div>
 @endsection

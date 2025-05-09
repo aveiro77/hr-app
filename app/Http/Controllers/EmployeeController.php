@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('task.index', compact('tasks'));
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Task $task)
+    public function show(Employee $employee)
     {
         //
     }
@@ -43,7 +42,7 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Task $task)
+    public function edit(Employee $employee)
     {
         //
     }
@@ -51,7 +50,7 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Employee $employee)
     {
         //
     }
@@ -59,7 +58,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy(Employee $employee)
     {
         //
     }
