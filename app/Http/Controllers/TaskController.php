@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -21,7 +22,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $employees = Employee::all();
+        return view('task.create', compact('employees'));
     }
 
     /**

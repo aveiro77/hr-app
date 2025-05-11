@@ -109,7 +109,7 @@ class HRSeeder extends Seeder
                 'description' => $faker->paragraph(),
                 'assigned_to' => 1,
                 'due_date' => Carbon::parse('2025-05-31'),
-                'status' => 'Pending',
+                'status' => 'pending',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -118,7 +118,7 @@ class HRSeeder extends Seeder
                 'description' => $faker->paragraph(),
                 'assigned_to' => 1,
                 'due_date' => Carbon::parse('2025-05-25'),
-                'status' => 'Pending',
+                'status' => 'pending',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]

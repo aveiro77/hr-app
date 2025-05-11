@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('mazer/dist/assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('mazer/dist/assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('mazer/dist/assets/compiled/css/iconly.css') }}">
+    <link rel="stylesheet" href="{{ asset('mazer/dist/assets/extensions/choices.js/public/assets/styles/choices.css') }}">
+
 </head>
 
 <body>
@@ -73,10 +75,10 @@
                 </a>
             </li>             
             <li class="sidebar-item  ">
-                <a href="form-layout.html" class='sidebar-link'>
+                <x-responsive-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks')" class='sidebar-link'>
                     <i class="bi bi-list-task"></i>
                     <span>Tasks</span>
-                </a>   
+                </x-responsive-nav-link>
             </li>
             <li class="sidebar-item  ">
                 <a href="form-layout.html" class='sidebar-link'>
@@ -160,6 +162,9 @@
 
     <script src="{{ asset('mazer/dist/assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
     <script src="{{ asset('mazer/dist/assets/static/js/pages/simple-datatables.js') }}"></script>
+
+    <script src="{{ asset('mazer/dist/assets/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
+    <script src="{{ asset('mazer/dist/assets/static/js/pages/form-element-select.js') }}"></script>
 
 </body>
 
