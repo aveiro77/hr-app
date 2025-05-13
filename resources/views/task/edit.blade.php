@@ -34,15 +34,21 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" method="POST" action="{{ route('tasks.store') }}">
+
+                                @if(session('error'))
+                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                @endif
+
+                                <form class="form form-horizontal" method="POST" action="{{ route('tasks.update', $task->id) }}">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <label for="title">Title</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <input type="text" id="title" class="form-control" name="title" placeholder="Title" value="{{ old('title') }}" id="employee">
+                                                <input type="text" id="title" class="form-control" name="title" placeholder="Title" value="{{ old('title', $task->title) }}" id="employee">
                                                 @error('title')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -54,7 +60,7 @@
                                                 <select class="choices form-select form-control @error('assigned_to') is_invalid @enderror" id="assigned_to" name="assigned_to">
                                                     <option value="none">Employee</option>
                                                     @foreach ($employees as $employee)
-                                                        <option value="{{ $employee->id }}">{{ $employee->fullname }}</option>
+                                                        <option value="{{ $employee->id }}" @if(old('assigned_to', $task->assigned_to) == $employee->id) selected @endif>{{ $employee->fullname }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -62,7 +68,7 @@
                                                 <label for="description">Description</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <input type="text" id="description" class="form-control" name="description" placeholder="Description" value="{{ old('description') }}">
+                                                <input type="text" id="description" class="form-control" name="description" placeholder="Description" value="{{ old('description', $task->description) }}">
                                                 @error('description')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -71,21 +77,21 @@
                                                 <label for="due_date">Due date</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <input type="datetime-local" id="password-horizontal" class="form-control date @error('due_date') is_invalid @enderror" value="{{ old('due_date') }}" name="due_date" id="due_date">
+                                                <input type="datetime-local" id="password-horizontal" class="form-control date @error('due_date') is_invalid @enderror" value="{{ old('due_date', $task->due_date) }}" name="due_date" id="due_date">
                                             </div>
                                             <div class="col-md-2">
                                                 <label for="status">Status</label>
                                             </div>
                                             <div class="col-md-10 form-group">
                                                 <select name="status" id="status" class="form-control @error('status') is_invalid @enderror">
-                                                    <option value="done">Done</option>
-                                                    <option value="pending">Pending</option>
-                                                    <option value="on progress">On Progress</option>
+                                                    <option value="done" @if(old('status', $task->status) == 'done') selected @endif>Done</option>
+                                                    <option value="pending" @if(old('status', $task->status) == 'pending') selected @endif>Pending</option>
+                                                    <option value="on progress" @if(old('status', $task->status) == 'on progress') selected @endif>On Progress</option>
                                                 </select> 
                                             </div>
                                             
                                             <div class="col-sm-12 d-flex justify-content-end">
-                                                <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
                                                 <button type="reset"
                                                     class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                             </div>
