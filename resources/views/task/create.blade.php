@@ -71,7 +71,7 @@
                                                 <label for="due_date">Due date</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <input type="datetime-local" id="password-horizontal" class="form-control @error('due_date') is_invalid @enderror" value="{{ old('due_date') }}" name="due_date" id="due_date">
+                                                <input type="datetime-local" id="password-horizontal" class="form-control date @error('due_date') is_invalid @enderror" value="{{ old('due_date') }}" name="due_date" id="due_date">
                                             </div>
                                             <div class="col-md-2">
                                                 <label for="status">Status</label>

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('mazer/dist/assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('mazer/dist/assets/compiled/css/iconly.css') }}">
     <link rel="stylesheet" href="{{ asset('mazer/dist/assets/extensions/choices.js/public/assets/styles/choices.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
 
@@ -165,6 +166,15 @@
 
     <script src="{{ asset('mazer/dist/assets/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
     <script src="{{ asset('mazer/dist/assets/static/js/pages/form-element-select.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        let date = flatpickr('.date', {
+            dateFormat: "Y-m-d",
+            enableTime: false
+        })
+    </script>
 
 </body>
 

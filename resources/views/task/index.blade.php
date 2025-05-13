@@ -49,10 +49,10 @@
                         <tbody>
                             @foreach($tasks as $task)
                                 <tr>
-                                    <td>{{ $task->title }}</td>
-                                    <td>{{ $task->employee->fullname }}</td>
-                                    <td>{{ $task->due_date }}</td>
-                                    <td>
+                                    <td class="text-sm">{{ $task->title }}</td>
+                                    <td class="text-sm">{{ $task->employee->fullname }}</td>
+                                    <td class="text-sm">{{ $task->due_date }}</td>
+                                    <td class="text-sm">
                                         @if($task->status=='pending')
                                             <span class="text-warning">Pending</span>
                                         @elseif($task->status=='done')
@@ -61,16 +61,16 @@
                                             <span class="text-info">{{ $task->status }}</span>
                                         @endif
                                     </td>
-                                    <td>
+                                    <td class="text-sm">
 
                                         @if($task->status=='pending')
-                                            <a href="" class="btn btn-success btn-sm m-1">Mark as Done</a>    
+                                            <a href="" class="badge rounded-pill text-bg-success m-1">Mark as Done</a>    
                                         @else
-                                            <a href="" class="btn btn-warning btn-sm m-1">Mark as Pending</a>   
+                                            <a href="" class="badge rounded-pill text-bg-warning m-1">Mark as Pending</a>   
                                         @endif
-                                        <a href="" class="btn btn-primary btn-sm m-1">View</a>
-                                        <a href="" class="btn btn-info btn-primary btn-sm m-1">Edit</a>
-                                        <a href="" class="btn btn-info btn-danger btn-sm m-1">Delete</a>
+                                        <a href="" class="badge rounded-pill text-bg-primary m-1">View</a>
+                                        <a href="" class="badge rounded-pill text-bg-dark m-1">Edit</a>
+                                        <a href="" class="badge rounded-pill text-bg-danger m-1">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
