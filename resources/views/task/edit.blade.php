@@ -19,7 +19,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page">Tasks</li>
-                            <li class="breadcrumb-item active" aria-current="page">Create</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit</li>
                         </ol>
                     </nav>
                 </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-12 col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Horizontal Form</h4>
+                            <h4 class="card-title">Edit Task</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
@@ -91,9 +91,11 @@
                                             </div>
                                             
                                             <div class="col-sm-12 d-flex justify-content-end">
+                                                <a href="{{ route('tasks.index') }}" class="btn btn-info me-1 mb-1">Back</a>
                                                 <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
                                                 <button type="reset"
-                                                    class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                    class="btn btn-light-secondary me-1 mb-1">Reset
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

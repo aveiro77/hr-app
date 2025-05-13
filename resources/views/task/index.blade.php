@@ -33,16 +33,15 @@
                     </h5>
                 </div>
                 <div class="card-body">
+                    <div class="d-flex">
+                        <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3 ms-auto">New Task</a>
+                    </div>
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Message :</strong> {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-
-                    <div class="d-flex">
-                        <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3 ms-auto">New Task</a>
-                    </div>
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
@@ -71,11 +70,11 @@
                                     <td class="text-sm">
 
                                         @if($task->status=='pending')
-                                            <a href="" class="badge rounded-pill text-bg-success m-1">Mark as Done</a>    
+                                            <a href="{{ route('tasks.done', $task->id) }}" class="badge rounded-pill text-bg-success m-1">Mark as Done</a>    
                                         @else
-                                            <a href="" class="badge rounded-pill text-bg-warning m-1">Mark as Pending</a>   
+                                            <a href="{{ route('tasks.pending', $task->id) }}" class="badge rounded-pill text-bg-warning m-1">Mark as Pending</a>   
                                         @endif
-                                        <a href="" class="badge rounded-pill text-bg-primary m-1">View</a>
+                                        <a href="{{ route('tasks.show', $task->id) }}" class="badge rounded-pill text-bg-primary m-1">View</a>
                                         <a href="{{ route('tasks.edit', $task->id) }}" class="badge rounded-pill text-bg-dark m-1">Edit</a>
 
                                         <button class="badge rounded-pill text-bg-danger m-1" data-bs-toggle="modal"
