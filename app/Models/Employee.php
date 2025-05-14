@@ -22,4 +22,8 @@ class Employee extends Model
         'salary'
 
     ];
+
+    public function departement () {
+        return $this->belongsTo(Departement::class, 'departement_id');
+    }
 }
