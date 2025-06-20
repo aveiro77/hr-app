@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-body">
                     <div class="d-flex">
-                        <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3 ms-auto">New Employee</a>
+                        <a href="{{ route('employees.create') }}" class="btn btn-primary mb-3 ms-auto">New Employee</a>
                     </div>
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -87,7 +87,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Are you sure to delete this task?
+                                                        Are you sure to delete this employee?
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary"
                                                             data-bs-dismiss="modal">
