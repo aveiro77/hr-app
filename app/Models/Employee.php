@@ -20,7 +20,6 @@ class Employee extends Model
         'role_id',
         'status',
         'salary'
-
     ];
 
     public function departement () {

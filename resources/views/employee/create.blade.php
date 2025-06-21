@@ -61,8 +61,8 @@
                                                 <label for="phone">Phone Number</label>
                                             </div>
                                             <div class="col-md-10 form-group">
-                                                <input type="text" id="phone" class="form-control" name="phone" placeholder="phone number" value="{{ old('phone') }}">
-                                                @error('phone')
+                                                <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="phone number" value="{{ old('phone_number') }}">
+                                                @error('phone_number')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
