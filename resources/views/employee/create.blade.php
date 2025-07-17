@@ -44,7 +44,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Fullname" value="{{ old('fullname') }}">
                                                 @error('fullname')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             <div class="col-md-2">
@@ -53,7 +53,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="email" class="form-control" name="email" placeholder="email@example.com" value="{{ old('email') }}">
                                                 @error('email')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
@@ -63,7 +63,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="phone number" value="{{ old('phone_number') }}">
                                                 @error('phone_number')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
@@ -73,7 +73,7 @@
                                             <div class="col-md-10 form-group">
                                                 <textarea id="address" class="form-control" name="address" placeholder="Address">{{ old('address') }}</textarea>
                                                 @error('address')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
@@ -83,7 +83,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="date" id="birth_date" class="form-control date" name="birth_date" value="{{ old('birth_date') }}">
                                                 @error('birth_date')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
@@ -93,7 +93,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="date" id="hire_date" class="form-control date" name="hire_date" value="{{ old('hire_date') }}">
                                                 @error('hire_date')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                             
@@ -105,11 +105,13 @@
                                                 <select class="choices form-select form-control @error('departement_id') is_invalid @enderror" id="departement_id" name="departement_id">
                                                     <option value="none">Departement</option>
                                                     @foreach ($departements as $departement)
-                                                        <option value="{{ $departement->id }}">{{ $departement->name }}</option>
+                                                        <option value="{{ $departement->id }}" {{ old('departement_id') == $departement->id ? 'selected' : '' }} >
+                                                            {{ $departement->name }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                                 @error('departement_id')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
@@ -120,11 +122,11 @@
                                                 <select class="choices form-select form-control @error('role_id') is_invalid @enderror" id="role_id" name="role_id">
                                                     <option value="none">Role</option>
                                                     @foreach ($roles as $role)
-                                                        <option value="{{ $role->id }}">{{ $role->title }}</option>
+                                                        <option value="{{ $role->id }}" {{ old('role_id') == $role->id ? 'selected' : '' }} >{{ $role->title }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('role_id')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
@@ -133,11 +135,11 @@
                                             </div>
                                             <div class="col-md-10 form-group">
                                                 <select class="choices form-select form-control @error('status') is_invalid @enderror" id="status" name="status">
-                                                    <option value="active">Active</option>
-                                                    <option value="inactive">Inactive</option>
+                                                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }} >Active</option>
+                                                    <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }} >Inactive</option>
                                                 </select>
                                                 @error('status')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
@@ -147,7 +149,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="number" id="salary" class="form-control" name="salary" placeholder="1000" value="{{ old('salary') }}">
                                                 @error('salary')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                    <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
