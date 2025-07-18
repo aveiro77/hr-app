@@ -44,7 +44,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Fullname" value="{{ old('fullname') }}">
                                                 @error('fullname')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
                                             <div class="col-md-2">
@@ -53,7 +53,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="email" class="form-control" name="email" placeholder="email@example.com" value="{{ old('email') }}">
                                                 @error('email')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
@@ -63,7 +63,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="text" id="phone_number" class="form-control" name="phone_number" placeholder="phone number" value="{{ old('phone_number') }}">
                                                 @error('phone_number')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
@@ -73,7 +73,7 @@
                                             <div class="col-md-10 form-group">
                                                 <textarea id="address" class="form-control" name="address" placeholder="Address">{{ old('address') }}</textarea>
                                                 @error('address')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
@@ -83,7 +83,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="date" id="birth_date" class="form-control date" name="birth_date" value="{{ old('birth_date') }}">
                                                 @error('birth_date')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
@@ -93,7 +93,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="date" id="hire_date" class="form-control date" name="hire_date" value="{{ old('hire_date') }}">
                                                 @error('hire_date')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
                                             
@@ -111,7 +111,7 @@
                                                     @endforeach
                                                 </select>
                                                 @error('departement_id')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
@@ -126,7 +126,7 @@
                                                     @endforeach
                                                 </select>
                                                 @error('role_id')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
@@ -139,7 +139,7 @@
                                                     <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }} >Inactive</option>
                                                 </select>
                                                 @error('status')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
@@ -149,7 +149,7 @@
                                             <div class="col-md-10 form-group">
                                                 <input type="number" id="salary" class="form-control" name="salary" placeholder="1000" value="{{ old('salary') }}">
                                                 @error('salary')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                    <div class="text-danger text-sm">{{ $message }}*</div>
                                                 @enderror
                                             </div>
 
