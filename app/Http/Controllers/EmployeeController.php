@@ -64,24 +64,50 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Employee $employee)
+    public function edit($id)
     {
-        //
+        $departements = Departement::all();
+        $roles = Role::all();
+        $employee = Employee::find($id);
+        return view('employee.edit', compact('departements', 'roles', 'employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+
+        // Validate the request data
+        $validated = $request->validate([
+            'fullname' => 'required|string|max:255',
+            'email' => 'required|email|unique:employees,email,' . $employee->id,
+            'phone_number' => 'required|string|max:15',
+            'address' => 'nullable|string|max:255',
+            'birth_date' => 'required|date',
+            'hire_date' => 'required|date',
+            'departement_id' => 'required|exists:departements,id',
+            'role_id' => 'required|exists:roles,id',
+            'status' => 'required|in:active,inactive',
+            'salary' => 'required|numeric|min:0'
+        ]);
+
+        // Update the employee record
+        $employee->update($validated);
+
+        return redirect()->route('employees.index')->with('success', 'Employee updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employee $employee)
+    public function destroy($employeeId)
     {
-        //
+        $employee = Employee::findOrFail($employeeId);
+        $employee->delete();
+
+        return redirect()->route('employees.index')->with('success', 'Employee deleted successfully.');
     }
+  
 }

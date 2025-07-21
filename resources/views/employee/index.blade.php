@@ -58,8 +58,8 @@
                             @foreach($employees as $employee)
                                 <tr>
                                     <td class="text-sm">{{ $employee->fullname }}</td>
-                                    <td class="text-sm">{{ $employee->date_birth }}</td>
-                                    <td class="text-sm">{{ $employee->phone }}</td>
+                                    <td class="text-sm">{{ $employee->birth_date }}</td>
+                                    <td class="text-sm">{{ $employee->phone_number }}</td>
                                     <td class="text-sm">{{ $employee->address }}</td>
                                     <td class="text-sm">{{ $employee->status }}</td>
                                     <td class="text-sm">{{ $employee->departement->name }}</td>
@@ -79,7 +79,7 @@
                                                 role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-danger">
-                                                        <h5 class="modal-title white" id="myModalLabel120">Delete Tasks
+                                                        <h5 class="modal-title white" id="myModalLabel120">Delete Employee
                                                         </h5>
                                                         <button type="button" class="close" data-bs-dismiss="modal"
                                                             aria-label="Close">
